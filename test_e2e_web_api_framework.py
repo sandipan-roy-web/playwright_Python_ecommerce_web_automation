@@ -12,7 +12,7 @@ def test_login_via_api(playwright: Playwright,page:Page,user_cred):  #the user_c
     #login -> create order-> get order _id
     email = user_cred['user_email']
     passwd = user_cred['user_pass']
-    browser = playwright.chromium.launch(headless=False)
+    browser = playwright.chromium.launch()
     context = browser.new_context()
     page = context.new_page()
     login_page =  LoginPage(page)
@@ -30,7 +30,7 @@ def test_login_via_api(playwright: Playwright,page:Page,user_cred):  #the user_c
 def test_fashion_checkbox_click(playwright:Playwright,user_cred):
     email = user_cred['user_email']
     passwd =  user_cred['user_pass']
-    browser = playwright.chromium.launch(headless=False)
+    browser = playwright.chromium.launch()
     context =  browser.new_context()
     page = context.new_page()
     login = LoginPage(page)
@@ -43,7 +43,7 @@ def test_fashion_checkbox_click(playwright:Playwright,user_cred):
 @pytest.mark.parametrize('user_cred',user_data)
 #login->search for ZARA->Press Enter->Validate search result->click on View of that product->Check continue shopping button
 def test_search_bar_on_dashboard(playwright:Playwright,user_cred):
-    browser = playwright.chromium.launch(headless=False)
+    browser = playwright.chromium.launch()
     context=browser.new_context()
     page = context.new_page()
     email = user_cred['user_email']
